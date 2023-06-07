@@ -25,11 +25,11 @@ if(isset($_POST['addEmployee'])){
         $conn);
     
         If($status){
-            header ("Location:../view/list.php");
+            header ("Location:../view/managingList.php");
         }else{
     
             echo "Pokusajte ponovo";
-             header ("Location:../view/list.php");
+             header ("Location:../view/index.php");
         }
     
     }

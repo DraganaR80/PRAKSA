@@ -4,7 +4,7 @@ require "../model/Employee.php";
 require "../contorller/addEmployee.php";
 require "../contorller/deleteEmployee.php";
 require "../contorller/updateEmployee.php";
-//require "header.php";
+require "listHeader.php";
 
 $list= Employee::getAll($conn);
 
@@ -16,15 +16,7 @@ exit();
 }
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
     
 
 <div class= "list">
@@ -67,9 +59,9 @@ while($red=$list->fetch_array()){
                         <td><?php echo $red['department'] ?></td>  
                         <td><?php echo $red['education'] ?></td>  
 
-<td> <button name= "izmena" value=<?php echo $red['id'] ?>  >  izmeni </button> </td>
+<!--<td> <button name= "izmena" value=<?php echo $red['id'] ?>  >  izmeni </button> </td>
 
-<td>  <button  name=" brisanje"  value=<?php echo $red['id'] ?> > obriši</button></td>
+<td>  <button  name=" brisanje"  value=<?php echo $red['id'] ?> > obriši</button></td>-->
 
 </tr>
 
@@ -95,7 +87,7 @@ while($red=$list->fetch_array()){
 </div>
 
 <div class="add">
-    <form  method="POST" action="../view/list.php" id="posalji">
+    <form  method="POST" action="../contorller/addEmployee.php" id="posalji">
 
 <input type="text" placeholder="Ime"> <input type="text" placeholder="Prezime"> <br>
 <label for="birthday"> Datum rođenja</label> <label for="employmentDate"> Datum zaposlenja</label> <br>
