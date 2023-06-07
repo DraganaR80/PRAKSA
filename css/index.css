@@ -1,0 +1,43 @@
+*{
+    padding: 0px;
+    margin: 0px;}
+
+    body{
+        background-image:url(../images/Background2.jpg);
+        background-size: cover;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    .forma{
+
+        float: right;
+        margin: 7%;
+        margin-right: 10%;
+        padding: 5%;
+        background-color: rgba(162, 162, 233, 0.603);
+        border: 5px;
+        border-radius: 5%;
+
+    }
+
+    .search{
+     display:block;
+     float: left;
+     margin: 5%;
+     
+     padding: 5%;
+     background-color: rgba(162, 162, 233, 0.719);
+     border: 5px;
+     border-radius: 5%;
+    }
+
+    input{
+
+        border-radius: 5px;
+        height: 30px;
+        width: 190px;
+        font-size: 15px;
+        padding: 5%;
+
+
+    }

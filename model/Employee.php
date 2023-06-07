@@ -14,7 +14,18 @@ private $department;
 private $education;
 
 
-
+public function __construct($id,$name, $surname,$birthday,$employmentDate,$netoSallary,$vacation,$department,$education)
+{
+$this->id=$id;
+$this->name=$name;
+$this->surname=$surname;
+$this->birthday=$birthday;
+$this->employmentDate=$employmentDate;
+$this->netoSallary=$netoSallary;
+$this->vacation=$vacation; 
+$this->department=$department; 
+$this->education=$education; 
+}
 
 
 
@@ -157,9 +168,30 @@ private $education;
 		$this->education = $education;
 		return $this;
 	}
+
+	public static function getAll(mysqli $conn){
+
+		$q= " SELECT * FROM employees";
+		return $conn->query($q);
+
 }
 
+public static function add($name, $surname,$birthday, $employmentDate,$netoSallary,$vacation,$department,$education, mysqli $conn){
+	$q= "INSERT INTO employees (name,surname,birthday,employmentDate,netoSallary,vacation,department,education)
+	VALUES('$name', '$surname','$birthday','$employmentDate','$netoSallary','$vacation','$department','$education')";
+	
+	return $conn->query($q);
+	
+	}
+	public static function deleteById ($id, mysqli $conn){
 
+		$q= " DELETE FROM employees WHERE id=$id";
+	
+	return $conn->query($q);
+	
+	
+	}
+}
 
 
 

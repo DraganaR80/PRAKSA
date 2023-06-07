@@ -1,29 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dobro došli</title>
-</head>
-<body>
-    
-<div class="form">
-<h2> Registrujte se</h2>
+<?php 
+require "indexHeader.php";
+?>    
+<div class="forma">
+<h2> Unesite podatke</h2>
 <br><br>
-<form  method="POST"  action=""  id="posalji">
-
+<form method="POST" action="">
 <input type="email" name="email" placeholder="Email"   id="email">
 
 <br><br>
-
-<input type="password" name="password" placeholder="Password "   id="password">
+<input type="password" name="password" placeholder="Password"   id="password">
 
 <br><br>
-<br><br>
-<button type="submit" class="button"  name="rezervisi"> Rezerviši</button>
- 
+  
+  <button type="submit" class="btn btn-primary">Prijavi se</button>
 </form>
+</div>
+<br><br>
+<br><br>
+
+<div class="search">
+
+<h3> Pretražite </h3>
+
+
+<input type="text" id="search"  class=" pretrazi" placeholder="Pretraži">
+
 </div>
 
 
