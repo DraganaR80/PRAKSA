@@ -1,6 +1,6 @@
 <?php
 require "../db.Broker.php";
-require_once "../model/Employee.php";
+require "../model/Employee.php";
 
 $list= Employee::getAll($conn);
 
@@ -42,10 +42,8 @@ if(!$list){
 if($list->num_rows==0){
 echo "Nema podataka za prikaz ";
 
-}else{
 
-while($red=$list->fetch_array()){
-
+}while($red=$list->fetch_array()){
     ?>
 
 <tr>
@@ -66,16 +64,16 @@ while($red=$list->fetch_array()){
                                 <span class="checkmark"></span>
                             </label>
                         </td>
-<td> <button name= "izmena" value=<?php echo $red['id'] ?>  >  izmeni </button> </td>
+<!--<td> <button name= "izmena" value=<?php echo $red['id'] ?>  >  izmeni </button> </td>-->
 
-<td>  <button  name=" brisanje"  value=<?php echo $red['id'] ?> > obriši</button></td>
+<td>  <button   class= "dugmeBrise"  id= "brisi"  > obriši</button></td>
 
 </tr><?php
-}
+
 }?>
 
 
 </tbody>
 </table>
 </div>
-</html>
+<?php require "footer.php"; ?>

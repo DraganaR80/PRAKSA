@@ -1,9 +1,8 @@
 <?php
 require "../db.Broker.php" ;
 require "../model/Employee.php";
-require "../contorller/addEmployee.php";
-require "../contorller/deleteEmployee.php";
-require "../contorller/updateEmployee.php";
+require "../contorller/listController.php";
+
 require "listHeader.php";
 
 $list= Employee::getAll($conn);
@@ -87,13 +86,13 @@ while($red=$list->fetch_array()){
 </div>
 
 <div class="add">
-    <form  method="POST" action="../contorller/addEmployee.php" id="posalji">
+    <form  method="POST" action="../contorller/listController.php" id="posalji">
 
-<input type="text" placeholder="Ime"> <input type="text" placeholder="Prezime"> <br>
+<input type="text"name="name" placeholder="Ime"> <input type="text" name="surname" placeholder="Prezime"> <br>
 <label for="birthday"> Datum rođenja</label> <label for="employmentDate"> Datum zaposlenja</label> <br>
-<input type="date" name="" id="">   <input type="date" name="" id=""> <br>
-<input type="text" placeholder="Neto plata"> <input type="text" placeholder="Dani godišnjeg odmora"> <br>
-<input type="text" placeholder="Odsek"> <input type="text" placeholder="Stručna sprema"> <br>
+<input type="date" name="birthday" id="">   <input type="date" name="employmentDate" id=""> <br>
+<input type="text" name="netoSallary" placeholder="Neto plata"> <input type="text" name="vacation" placeholder="Dani godišnjeg odmora"> <br>
+<input type="text" name="department" placeholder="Odsek"> <input type="text" name= "education" placeholder="Stručna sprema"> <br>
 <button type="submit" class="btn btn-primary" name="addEmployee"> Dodaj zaposlenog</button>
 
 
@@ -103,5 +102,4 @@ while($red=$list->fetch_array()){
 
 
 </div>
-</body>
-</html>
+<?php require "footer.php"; ?>
