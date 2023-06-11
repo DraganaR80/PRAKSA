@@ -2,8 +2,9 @@
 require "../db.Broker.php" ;
 require "../model/Employee.php";
 require "../contorller/listController.php";
-
 require "listHeader.php";
+require "navbar.php";
+
 
 $list= Employee::getAll($conn);
 
@@ -15,7 +16,7 @@ exit();
 }
 
 ?>
-
+<img class= "slika" src="../images/list.jpg" alt="zaposleni">
     
 
 <div class= "list">
@@ -85,21 +86,5 @@ while($red=$list->fetch_array()){
 </table>
 </div>
 
-<div class="add">
-    <form  method="POST" action="../contorller/listController.php" id="posalji">
 
-<input type="text"name="name" placeholder="Ime"> <input type="text" name="surname" placeholder="Prezime"> <br>
-<label for="birthday"> Datum rođenja</label> <label for="employmentDate"> Datum zaposlenja</label> <br>
-<input type="date" name="birthday" id="">   <input type="date" name="employmentDate" id=""> <br>
-<input type="text" name="netoSallary" placeholder="Neto plata"> <input type="text" name="vacation" placeholder="Dani godišnjeg odmora"> <br>
-<input type="text" name="department" placeholder="Odsek"> <input type="text" name= "education" placeholder="Stručna sprema"> <br>
-<button type="submit" class="btn btn-primary" name="addEmployee"> Dodaj zaposlenog</button>
-
-
-    </form>
-
-
-
-
-</div>
 <?php require "footer.php"; ?>

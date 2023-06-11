@@ -58,16 +58,20 @@ echo "Nema podataka za prikaz ";
                         <td><?php echo $red['department'] ?></td>  
                         <td><?php echo $red['education'] ?></td>  
                         <td class="celija">
-                            <label class="radio-btn">
-                                
-                                <input type="radio" class="radio" name="checked-donut" value=<?php echo $red['id'] ?>>
-                                <span class="checkmark"></span>
-                            </label>
+                           
+
+                            <label class="custom-radio-btn">
+                                    <form action="../contorller/listController.php" method="post">
+                                        <input type="hidden" name="id" value=<?php echo $red["id"] ?>>
+                                        <button id="btn-obrisi" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> Obriši
+                                        </button>
+                                    </form>
+                                </label>
                         </td>
-<!--<td> <button name= "izmena" value=<?php echo $red['id'] ?>  >  izmeni </button> </td>-->
 
-<td>  <button   class= "dugmeBrise"  id= "brisi"  > obriši</button></td>
 
+
+<td class=""> <button name= "izmena">  Izmeni </button> </td>
 </tr><?php
 
 }?>
@@ -75,5 +79,24 @@ echo "Nema podataka za prikaz ";
 
 </tbody>
 </table>
+</div>
+<br> <br> <br>
+<div class="add">
+    <form  method="POST" action="../contorller/listController.php" id="posalji">
+
+<input type="text"name="id" placeholder="id"> <br>
+<input type="text"name="name" placeholder="Ime"> <input type="text" name="surname" placeholder="Prezime"> <br>
+<label for="birthday"> Datum rođenja</label>     <label for="employmentDate"> Datum zaposlenja</label> <br>
+<input type="date" name="birthday" id="">        <input type="date" name="employmentDate" id=""> <br>
+<input type="text" name="netoSallary" placeholder="Neto plata"> <input type="text" name="vacation" placeholder="Dani godišnjeg odmora"> <br>
+<input type="text" name="department" placeholder="Odsek"> <input type="text" name= "education" placeholder="Stručna sprema"> <br>
+<button type="submit" class="btn btn-primary" name="addEmployee"> Dodaj zaposlenog</button>
+
+
+    </form>
+
+
+
+
 </div>
 <?php require "footer.php"; ?>

@@ -1,24 +1,19 @@
-$("#brisi").click(function(event){
-    event.preventDefault();
-  console.log("Pokrenuto brisanje zaposlenog");
 
-    const oznaceno= $("input[type=radio]:checked");
-    request=$.ajax({
-        url:"../contorller/listController.php",
-        type:"post",
-        //citamo vrednost oznacenog polja
-        data:{id:oznaceno.val()},
-    });
-    request.done(function (response, textStatus, jqXHR) {
-        if (response == "Success") {
-          alert("Zaposleni  je obrisan");
-          location.reload(true);
-        } else {
-          console.log("zaposleni nije obrisan" + response);
-        }
+
+    //PRETRAGA ZAPOSLENIH
+    $(document).ready(function() {
+      $("#search").on("keyup", function(e) {
+          $("#table").trigger("reset");
+          var search_query = $(this).val();
+          $.ajax({
+              url: "../contorller/search.php",
+              type: "POST",
+              data: {
+                  search: search_query
+              },
+              success: function($data) {
+                  $("#table").html($data);
+              }
+          });
       });
-    
-      request.fail(function (jqXHR, textStatus, error) {
-        console.error("Desila se greska: " + textStatus, error);
-      }); 
-    })
+  });

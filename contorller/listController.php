@@ -2,6 +2,7 @@
 require "../db.Broker.php";
 require_once "../model/Employee.php";
 
+//DODAVANJE ZAPOSLENOG
 if(isset($_POST['addEmployee'])){
 
     if (isset($_POST['name']) 
@@ -35,13 +36,15 @@ if(isset($_POST['addEmployee'])){
     }
     }
     
+    //BRISANJE ZAPOSLENOG
     if(isset($_POST['id'])){
 
         $status= Employee::deleteById($_POST['id'],$conn);
     
     if($status){
     
-    echo "Zposleni je uspešno uklonjen sa liste";
+    echo "Success";
+    header ("Location:../view/managingList.php");
     
     }
     else{
@@ -53,6 +56,31 @@ if(isset($_POST['addEmployee'])){
     
     }
     
+    // IZMENA ZAPOSLENOG
+
+    if(isset($_POST['izmena'])){
+
+        $status= Employee::update($_POST['izmena'],
+
+        $_POST['netoSallary'],
+        $_POST['vacation'],
+        $conn);
+    
+        If($status){
+            header ("Location:../view/managingList.php");
+        }else{
+    
+            echo "Pokusajte ponovo";
+             header ("Location:../view/index.php");
+        }
+
+
+
+
+    }
+
+
+    //PRETRAGA
     
     
 

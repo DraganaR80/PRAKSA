@@ -1,10 +1,13 @@
 <?php 
 require "indexHeader.php";
-?>    
+require "navbar.php";
+?>  
+
 <div class="forma">
-<h2> Unesite podatke</h2>
-<br><br>
 <form method="POST" action="">
+  <fieldset>
+  <legend> Unesite podatke </legend>
+<br><br>
 <input type="email" name="email" placeholder="Email"   id="email">
 
 <br><br>
@@ -13,6 +16,7 @@ require "indexHeader.php";
 <br><br>
   
   <button type="submit" class="btn btn-primary">Prijavi se</button>
+  </fieldset>
 </form>
 </div>
 <br><br>
@@ -22,9 +26,72 @@ require "indexHeader.php";
 
 <h3> Pretražite </h3>
 
+<form action="" method="GET">
+<input type="text"  name="search" value= "<?php if(isset($_GET['search'])){echo $_GET['search']; } ?> "id="search"  class=" pretrazi">
+<button type="submit" class="btn btn-primary">Pretražite</button>
 
-<input type="text" id="search"  class=" pretrazi" placeholder="Pretraži">
+</div>
+</form>
+<br> <br> <br>
+<div class="col-md-12" >
+  <div class="card mt-4"> 
+    <div class="card-body">
+<table class="table table-bordered">
 
+<thead>
+<tr>
+<th>Prezime</th>
+<th>Datum zaposlenja</th>
+<th>Odsek</th>
+</tr>
+</thead>
+</table>
+<tbody>
+<?php
+require "../db.Broker.php";
+$conn= mysqli_connect("localhost","root","","praksa");
+
+if(isset($_GET['search'])){
+$filtervalues=$_GET['search'];
+$query= " SELECT * FROM employees WHERE CONCAT (surname, employmentDate,department) LIKE '%$filtervalues%'";
+$query_run= mysqli_query($conn,$query);
+
+if(mysqli_num_rows($query_run)>0){
+
+  foreach ($query_run as $items){
+?>
+<tr>
+<td><?=$items['surname'];?></td>
+<td><?=$items['employmentDate'];?></td>
+<td><?=$items['department'];?></td>
+
+
+
+</tr>
+<?php 
+  }
+
+}else {
+
+
+
+
+}
+?>
+<tr>
+
+<td colspan="3"> Neuspešna pretraga </td>
+</tr><?php 
+}
+?>
+<tr></tr>
+
+
+</tbody>
+
+    </div>
+        </div>
+  
 </div>
 
 

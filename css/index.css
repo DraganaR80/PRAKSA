@@ -8,25 +8,43 @@
         font-family: 'Open Sans', sans-serif;
     }
 
+    .header>ul  {
+        padding:20px;
+        background-color: black;
+        margin: bottom 5%;
+        position: sticky;
+        top: 0;
+        
+        
+        }
+        ul , a, li {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding-right: 3em;
+        
+        color:whitesmoke;
+        
+        }
     .forma{
 
         float: right;
         margin: 7%;
         margin-right: 10%;
         padding: 5%;
-        background-color: rgba(162, 162, 233, 0.603);
+        background-color: rgba(0, 0, 0, 0.222);
         border: 5px;
         border-radius: 5%;
 
     }
 
     .search{
-     display:block;
+     
      float: left;
      margin: 5%;
      
      padding: 5%;
-     background-color: rgba(162, 162, 233, 0.719);
+     background-color:rgba(0, 0, 0, 0.222) ;
      border: 5px;
      border-radius: 5%;
     }

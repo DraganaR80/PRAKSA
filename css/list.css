@@ -1,0 +1,32 @@
+*{
+    padding: 0px;
+    margin: 0px;}
+
+    .header>ul  {
+        padding:20px;
+        background-color:black;
+        margin: bottom 5%;
+        position: sticky;
+        top: 0;
+        
+        
+        }
+        ul , a, li {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding-right: 3em;
+        
+        color: whitesmoke;
+        
+        }
+        body{
+        
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .slika {
+        height: 5%;
+        width:100%;
+       
+        }

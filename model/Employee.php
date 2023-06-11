@@ -191,6 +191,12 @@ public static function add($name, $surname,$birthday, $employmentDate,$netoSalla
 	
 	
 	}
+
+	public static function update($id,$netoSallary,$vacation, mysqli $conn){
+
+		$q= "UPDATE employees SET netoSallary='$netoSallary', vacation='$vacation' WHERE id='$id' ";
+		return $conn->query($q);
+	}
 }
 
 
