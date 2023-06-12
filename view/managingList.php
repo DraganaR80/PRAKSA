@@ -7,8 +7,8 @@ require "manageHeader.php";
 
 session_start();
 if (empty($_SESSION['loggeduser']) || $_SESSION['loggeduser'] == '') {
-    header("Location:managingList.php");
-    die();
+    header("index.php");
+   // die();
 }
 
 $list= Employee::getAll($conn);
