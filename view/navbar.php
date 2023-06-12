@@ -5,10 +5,6 @@
 <li> <b><a href="list.php"> O nama</a></b> </li>
 <li>  <b><a href="#">Kontakt</a></b> </li>
 <li> <b> <a href="obracun.php">Računaljka</a></b> </li>
-
 </ul>
-
-
-</div>
 
 </div>

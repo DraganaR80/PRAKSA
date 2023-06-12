@@ -1,10 +1,38 @@
 <?php 
+require "../db.Broker.php";
+require "../model/Admins.php";
 require "indexHeader.php";
 require "navbar.php";
+
+
+session_start();
+if (isset($_POST['email']) && isset($_POST['password'])) {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $korisnik = new Admins(1, $email, $password);
+    // $odgovor = $korisnik->Login($conn);
+    $odgovor = Admins::login($email, $password, $conn);
+
+    if ($odgovor->num_rows == 1) {
+        echo "Uspesno ste se prijavili!";
+        $_SESSION['loggeduser'] = 'prijavljen';
+        $_SESSION['id'] = $odgovor->fetch_assoc()['id'];
+        header("Location:managingList.php");
+        exit();
+    } else {
+        echo "User ne postoji";
+        exit();
+    }
+}
+
+
+
+
 ?>  
 
 <div class="forma">
-<form method="POST" action="">
+<form method="POST" action="managingList.php">
   <fieldset>
   <legend> Unesite podatke </legend>
 <br><br>
@@ -21,6 +49,7 @@ require "navbar.php";
 </div>
 <br><br>
 <br><br>
+
 
 <div class="search">
 
@@ -73,16 +102,16 @@ if(mysqli_num_rows($query_run)>0){
 
 }else {
 
-
-
+  
 
 }
 ?>
-<tr>
+<!--<tr>
 
 <td colspan="3"> Neuspešna pretraga </td>
-</tr><?php 
+</tr>--><?php 
 }
+
 ?>
 <tr></tr>
 

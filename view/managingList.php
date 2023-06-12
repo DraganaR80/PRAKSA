@@ -1,6 +1,15 @@
 <?php
 require "../db.Broker.php";
 require "../model/Employee.php";
+require "../model/Admins.php";
+require "navbar.php";
+require "manageHeader.php";
+
+session_start();
+if (empty($_SESSION['loggeduser']) || $_SESSION['loggeduser'] == '') {
+    header("Location:managingList.php");
+    die();
+}
 
 $list= Employee::getAll($conn);
 
@@ -12,15 +21,7 @@ if(!$list){
 
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
 <div class= "list">
 <table class="table" id="table">
 <thead>
@@ -71,7 +72,7 @@ echo "Nema podataka za prikaz ";
 
 
 
-<td class=""> <button name= "izmena">  Izmeni </button> </td>
+<td class=""> <button name="btn-izmena" class="btn btn-secondary"><a href="izmena.php">Izmeni</a></button></td>
 </tr><?php
 
 }?>
@@ -84,12 +85,12 @@ echo "Nema podataka za prikaz ";
 <div class="add">
     <form  method="POST" action="../contorller/listController.php" id="posalji">
 
-<input type="text"name="id" placeholder="id"> <br>
-<input type="text"name="name" placeholder="Ime"> <input type="text" name="surname" placeholder="Prezime"> <br>
-<label for="birthday"> Datum rođenja</label>     <label for="employmentDate"> Datum zaposlenja</label> <br>
-<input type="date" name="birthday" id="">        <input type="date" name="employmentDate" id=""> <br>
-<input type="text" name="netoSallary" placeholder="Neto plata"> <input type="text" name="vacation" placeholder="Dani godišnjeg odmora"> <br>
-<input type="text" name="department" placeholder="Odsek"> <input type="text" name= "education" placeholder="Stručna sprema"> <br>
+<!--<input type="text"name="id" placeholder="id"> <br>-->
+<input type="text"name="name" placeholder="Ime"> <input type="text" name="surname" placeholder="Prezime"> <br><br>
+<label for="birthday"> Datum rođenja</label>            <input type="date" name="birthday" id="">       <br><br>
+<label for="employmentDate"> Datum zaposlenja</label>   <input type="date" name="employmentDate" id=""> <br>
+<input type="text" name="netoSallary" placeholder="Neto plata"> <input type="text" name="vacation" placeholder="Dani godišnjeg odmora"> <br><br>
+<input type="text" name="department" placeholder="Odsek"> <input type="text" name= "education" placeholder="Stručna sprema"> <br> <br>
 <button type="submit" class="btn btn-primary" name="addEmployee"> Dodaj zaposlenog</button>
 
 
