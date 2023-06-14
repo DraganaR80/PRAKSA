@@ -57,11 +57,12 @@ if(isset($_POST['addEmployee'])){
     }
     
     // IZMENA ZAPOSLENOG
-
+    
     if(isset($_POST['izmena'])){
 
         $status= Employee::update($_POST['izmena'],
 
+        $_POST['id'],
         $_POST['netoSallary'],
         $_POST['vacation'],
         $conn);
@@ -71,7 +72,7 @@ if(isset($_POST['addEmployee'])){
         }else{
     
             echo "Pokusajte ponovo";
-             header ("Location:../view/index.php");
+             header ("Location:../view/izmena.php");
         }
 
 

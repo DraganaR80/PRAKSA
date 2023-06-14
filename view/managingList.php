@@ -72,7 +72,11 @@ echo "Nema podataka za prikaz ";
 
 
 
-<td class=""> <button name="btn-izmena" class="btn btn-secondary"><a href="izmena.php">Izmeni</a></button></td>
+<td class="">
+<label class="custom-radio-btn">
+                                    <form action="../contorller/listController.php" method="post">
+                                        <input type="hidden" name="id" value=<?php echo $red["id"] ?>>
+<button name="btn-izmena" class="btn btn-secondary"><a href="izmena.php"value=<?php echo $red["id"] ?> >Izmeni</a></button></td>
 </tr><?php
 
 }?>

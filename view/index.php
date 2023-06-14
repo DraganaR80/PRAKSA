@@ -32,7 +32,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 ?>  
 
 <div class="forma">
-<form method="POST" action="managingList.php">
+<form method="POST" action="">
   <fieldset>
   <legend> Unesite podatke </legend>
 <br><br>
@@ -56,7 +56,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 <h3> Pretražite </h3>
 
 <form action="" method="GET">
-<input type="text"  name="search" value= "<?php if(isset($_GET['search'])){echo $_GET['search']; } ?> "id="search"  class=" pretrazi">
+<input type="text"  name="search" value= "<?php if(isset($_GET['search'])){echo $_GET['search']; } ?> "id="search"  class="pretrazi">
 <button type="submit" class="btn btn-primary">Pretražite</button>
 
 </div>
