@@ -37,7 +37,7 @@ if(isset($_POST['addEmployee'])){
     }
     
     //BRISANJE ZAPOSLENOG
-    if(isset($_POST['id'])){
+    if(isset($_POST['obrisi'])){
 
         $status= Employee::deleteById($_POST['id'],$conn);
     
@@ -59,9 +59,8 @@ if(isset($_POST['addEmployee'])){
     // IZMENA ZAPOSLENOG
     
     if(isset($_POST['izmena'])){
-
-        $status= Employee::update($_POST['izmena'],
-
+        if (isset($_POST['netoSallary']) && isset($_POST['vacation'])) {
+        $status= Employee::update(
         $_POST['id'],
         $_POST['netoSallary'],
         $_POST['vacation'],
@@ -74,11 +73,7 @@ if(isset($_POST['addEmployee'])){
             echo "Pokusajte ponovo";
              header ("Location:../view/izmena.php");
         }
-
-
-
-
-    }
+}}
 
 
     //PRETRAGA

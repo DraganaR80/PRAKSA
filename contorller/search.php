@@ -3,7 +3,7 @@
 if (!empty($_POST['search'])) {
         $Search_Query = $conn->real_escape_string($_POST['search']);
         $query = "SELECT * FROM employees
-        WHERE name LIKE '%{$Search_Query}%' OR type LIKE '%{$Search_Query}%' LIMIT 6 OFFSET 0; ";
+        WHERE name LIKE '%{$Search_Query}%' OR surname LIKE '%{$Search_Query}%' LIMIT 6 OFFSET 0; ";
         $result = $conn->query($query) ;
         $html = "<table class='table'>";
         $html .= "

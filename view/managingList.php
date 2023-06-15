@@ -58,26 +58,32 @@ echo "Nema podataka za prikaz ";
                         <td><?php echo $red['vacation'] ?></td>  
                         <td><?php echo $red['department'] ?></td>  
                         <td><?php echo $red['education'] ?></td>  
-                        <td class="celija">
-                           
+                        <td >
+                        <form action="../contorller/Listcontroller.php" method="post">
+                                                <input type="hidden" name="id" value="<?= $red['id']; ?>">
+                                                <button type="submit" class="btn btn-danger" name="delete">Obriši</button>
+                                            </form>
 
-                            <label class="custom-radio-btn">
+                            <!--<label class="custom-radio-btn">
                                     <form action="../contorller/listController.php" method="post">
                                         <input type="hidden" name="id" value=<?php echo $red["id"] ?>>
                                         <button id="btn-obrisi" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> Obriši
                                         </button>
                                     </form>
-                                </label>
+                                </label>-->
                         </td>
 
+                        <td class="">
+                        <a href="izmena.php?id=<?= $red['id']; ?>" class="btn btn-secondary">Izmeni</a>
+            </td>
 
 
-<td class="">
+<!--<td class="">
 <label class="custom-radio-btn">
                                     <form action="../contorller/listController.php" method="post">
-                                        <input type="hidden" name="id" value=<?php echo $red["id"] ?>>
-<button name="btn-izmena" class="btn btn-secondary"><a href="izmena.php"value=<?php echo $red["id"] ?> >Izmeni</a></button></td>
-</tr><?php
+                                        <input type="hidden" name="id" value=<?php $red["id"] ?>>
+<button name="izmeni" class="btn btn-secondary"><a href="izmena.php"value=<?php $red["id"] ?> >Izmeni</a></button></td>
+</tr>--><?php
 
 }?>
 

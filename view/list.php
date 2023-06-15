@@ -4,87 +4,91 @@ require "../model/Employee.php";
 require "../contorller/listController.php";
 require "listHeader.php";
 require "navbar.php";
-
-
-$list= Employee::getAll($conn);
-
-if(!$list){
-
-echo "Nema stavki za prikaz";
-exit();
-
-}
-
 ?>
+
 <img class= "slika" src="../images/list.jpg" alt="zaposleni">
-    
-
-<div class= "list">
-<table class="table" id="table">
-<thead>
-<tr>
-<th>Redni broj</th>
-<th>ime</th>
-<th>Prezime</th>
-<th>Datum rođenja </th>
-<th>Datum zaposlenja </th>
-<th>Neto plata</th>
-<th>Dani godišnjeg odmora </th>
-<th>Odsek</th>
-<th>Stručna sprema</th>
-
-</tr>
-</thead>
-<tbody>
-
-<?php 
-if($list->num_rows==0){
-echo "Nema podataka za prikaz ";
-
-}else{
-
-while($red=$list->fetch_array()){
-
-    ?>
-
-<tr>
-
-                         <td><?php echo $red['id'] ?></td>
-                        <td><?php echo $red['name'] ?></td>
-                        <td><?php echo $red['surname'] ?></td>
-                        <td><?php echo $red['birthday'] ?></td>
-                        <td><?php echo $red['employmentDate'] ?></td>  
-                        <td><?php echo $red['netoSallary'] ?></td>  
-                        <td><?php echo $red['vacation'] ?></td>  
-                        <td><?php echo $red['department'] ?></td>  
-                        <td><?php echo $red['education'] ?></td>  
-
-<!--<td> <button name= "izmena" value=<?php echo $red['id'] ?>  >  izmeni </button> </td>
-
-<td>  <button  name=" brisanje"  value=<?php echo $red['id'] ?> > obriši</button></td>-->
-
-</tr>
-
-<?php
-}
-
-
-}?>
-
-
-
-
-
-
-
-
-</tbody>
-
-
-
-
-</table>
+<br> <br> <br>
+<h1 class="text-center my-3"> Upoznajte naš tim</h1>
+<br> <br> <br>
+<div class="card-deck">
+  <div class="card">
+    <img class="card-img-top" src="../images/Dragana.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Dragana Stošić</h5>
+      <p class="card-text">Upravni odbor.</p>
+      <p class="card-text"><small class="text-muted">Sa nama od 2017.</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="../images/Jovan.jpg"  alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Jovan Dabić</h5>
+      <p class="card-text">Upravni odbor</p>
+      <p class="card-text"><small class="text-muted">sa nama od 1990.</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="../images/Dragutin.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Dragutin Topić</h5>
+      <p class="card-text">Upravni odbor.</p>
+      <p class="card-text"><small class="text-muted">Sa nama od 2000. </small></p>
+    </div>
+  </div>
 </div>
-
+<div class="card-deck">
+  <div class="card">
+    <img class="card-img-top" src="../images/Svetlana.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Svetlana Simić</h5>
+      <p class="card-text">Administracija</p>
+      <p class="card-text"><small class="text-muted">Sa nama od 2022.</small></p>
+    </div>
+  </div>
+  <br> <br>
+  <div class="card">
+    <img class="card-img-top" src="../images/Suzana.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Suzana Glušić</h5>
+      <p class="card-text">Administracija</p>
+      <p class="card-text"><small class="text-muted">Sa nama od 2016.</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="../images/Vigor.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Vigor Knežević</h5>
+      <p class="card-text"> Administracija</p>
+      <p class="card-text"><small class="text-muted">Sa nama od 2001.</small></p>
+    </div>
+  </div>
+</div>
+<br> <br>
+<div class="card-deck">
+  <div class="card">
+    <img class="card-img-top" src="../images/Radiša.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Radiša Urošević</h5>
+      <p class="card-text">Administracija</p>
+      <p class="card-text"><small class="text-muted">Sa nama od 2017.</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="../images/Slavica.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Slavica Đukić</h5>
+      <p class="card-text">Računovodstvo</p>
+      <p class="card-text"><small class="text-muted">Sa nama od 2014.</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="../images/Slavko.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Slavko Rodić</h5>
+      <p class="card-text"> Računovodstvo</p>
+      <p class="card-text"><small class="text-muted">Sa nama od 2014.</small></p>
+    </div>
+  </div>
+</div>
 
 <?php require "footer.php"; ?>
