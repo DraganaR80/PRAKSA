@@ -21,7 +21,8 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         header("Location:managingList.php");
         exit();
     } else {
-        echo "User ne postoji";
+      header("Location:fail.php");
+        //echo "User ne postoji";
         exit();
     }
 }
@@ -62,7 +63,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 </div>
 </form>
 <br> <br> <br>
-<div class="col-md-12" >
+<div class="col" >
   <div class="card mt-4"> 
     <div class="card-body">
 <table class="table table-bordered">
@@ -77,12 +78,12 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 </table>
 <tbody>
 <?php
-require "../db.Broker.php";
+//require "../db.Broker.php";
 $conn= mysqli_connect("localhost","root","","praksa");
 
 if(isset($_GET['search'])){
 $filtervalues=$_GET['search'];
-$query= " SELECT * FROM employees WHERE CONCAT (surname, employmentDate,department) LIKE '%$filtervalues%'";
+$query= " SELECT * FROM employees WHERE CONCAT (surname,employmentDate,department) LIKE '%$filtervalues%'";
 $query_run= mysqli_query($conn,$query);
 
 if(mysqli_num_rows($query_run)>0){
@@ -105,11 +106,10 @@ if(mysqli_num_rows($query_run)>0){
   
 
 }
-?>
-<!--<tr>
+?><tr>
 
 <td colspan="3"> Neuspešna pretraga </td>
-</tr>--><?php 
+</tr><?php 
 }
 
 ?>
