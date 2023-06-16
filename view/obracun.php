@@ -20,10 +20,10 @@ require "obracunHeader.php";
                                         <input type="text" required name="osnovica" value="" placeholder="Unesite iznos plate" class="form-control mb-2">
                                     </div>
                                     
-                                    <div class="col-md-12">
+                                  <!--  <div class="col-md-12">
                                         <label class="mb-0" for="">Iznos</label>
                                         <input type="text" required name="" value="" placeholder="" class="form-control mb-2">
-                                    </div>
+                                    </div>-->
                                   
                                     <div class="col-md-12">
                                         <button type="submit" class="btn btn-secondary " name="izracunaj">Izračunaj</button>
@@ -32,34 +32,34 @@ require "obracunHeader.php";
                             </form>
                         </div>
                     </div>
+                    <?php  if (isset($_POST['izracunaj'])){
 
-                    <?php
-
-                      if (isset($_POST['izracunaj'])){
-
-                        $osnovica=$_POST['osnovica'];
+$osnovica=$_POST['osnovica'];
 
 
-                        if($osnovica > 40000)
+if($osnovica>40000)
 
-                            $dodatak= $osnovica * 10/100;
-
-                        
-                        else if($osnovica> 60000)
-
-                            $dodatak=$osnovica * 20/100;
-                        
-
-                        else ($osnovica > 70000){
-
-                            $dodatak= $osnovica * 30/100;
-                       
+    $dodatak= $osnovica * 10/100;
 
 
-                        $bruto = $osnovica + $dodatak;
+else if($osnovica > 60000)
 
-                        
-                      } ?>
+    $dodatak=$osnovica * 20/100;
+
+
+else {
+
+    $osnovica <40000;
+} 
+
+
+
+
+$bruto = $osnovica + $dodatak;
+echo $bruto;
+
+} ?>
+                   
                  
                     <?php   require "footer.php"; ?>
                
